@@ -1,0 +1,52 @@
+<!--  -->
+<%- include('header')%>
+    <!--  -->
+
+
+    <a href="/" style="text-decoration: none; position: absolute; top: 8vmax;  left: 3vmax;"><img class="shadow-lg rounded-circle" height="55px" src="/images/icons8-back-arrow.gif" alt=""></a>
+    <div class="container">
+        <div class="card shadow-lg rounded p-3" style="max-width: 80vmax; margin-top: 8vmax;">
+            <div class="row g-0">
+                <div class="col-md-4 bg-dark"
+                    style="height: inherit; background-image: url('/uploads/<%= card.image%>'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <form action="/update/<%= card._id%>" method="post" class="container mt-5 w-100"
+                            enctype="multipart/form-data">
+                            <h1 class="text-success mb-4">Update image</h1>
+                            <input type="text" placeholder="card title" name="title"
+                                class="form-control mb-5 w-100 p-2 fs-5" value="<%= card.title%>">
+                            <input type="text" placeholder="Author name" name="author"
+                                class="form-control mb-5 w-100 p-2 fs-5" value="<%= card.author%>">
+                            <div class="d-flex justify-content-between">
+                                <input type="file" placeholder="Add file" name="image"
+                                    class="w-75 form-control mb-4 p-2 fs-5 uploadfile">
+                                <img height="70" class="preview" src="/uploads/<%= card.image%>" alt="">
+                            </div>
+                            <input type="hidden" value="<%= card.image%>" name="oldgallery">
+                            <div class="d-flex">
+                                <button class="me-2 fs-6 btn btn-success">Update Gallery</button>
+                                <a href="/delete/<%= card._id%>" class="fs-6 btn btn-danger">Delete Gallery</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        const uploadfile = document.querySelector(".uploadfile");
+        const preview = document.querySelector(".preview");
+
+        uploadfile.addEventListener('change', function (e) {
+            preview.src = URL.createObjectURL(e.target.files[0]);
+        });
+
+    </script>
+
+    <!--  -->
+    <%- include('footer')%>

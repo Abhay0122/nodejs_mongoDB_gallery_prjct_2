@@ -1,0 +1,37 @@
+<!--  -->
+<%- include('header')%>
+
+  <!--  -->
+  <%- include('nav')%>
+
+
+    <div class="P-1 mt-4 d-flex justify-content-center align-items-center flex-wrap">
+      <% cards.forEach( (card)=>{%>
+        <div class="card mt-5 me-3" style="width: 250px; height: 400px; background-image: url('/uploads/<%= card.image%>');
+          background-position: center; background-size:cover; background-repeat: no-repeat;
+          box-shadow: 0 0 30px rgba(0, 0, 0, 0.786);">
+          <div class="card-body shadow-lg d-flex justify-content-between align-items-end">
+            <div>
+              <a href="/update/<%= card._id%>" class="text-decoration-none">
+                <h5 class="card-title text-white ">
+                  <%= card.title%>
+                </h5>
+                <p class="card-text text-white ">
+                  <%= card.author%>
+                </p>
+              </a>
+            </div>
+            <div>
+              <a download="/uploads/<%= card.image%>" href="/uploads/<%= card.image%>"
+                class="rounded-circle text-decoration-none">
+                <img class="rounded-circle" width="40px" src="/images/download_2.gif" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+        <%})%>
+
+    </div>
+
+    <!--  -->
+    <%- include('footer')%>

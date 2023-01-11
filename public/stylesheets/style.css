@@ -1,0 +1,19 @@
+body {
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color:whitesmoke !important;
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+  background: #dddddd;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #3bc474;
+  border-radius: 15px;
+}

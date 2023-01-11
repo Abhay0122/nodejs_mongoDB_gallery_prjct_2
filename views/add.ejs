@@ -1,0 +1,17 @@
+<!--  -->
+<%- include('header')%>
+
+  <!--  -->
+  <%- include('nav')%>
+
+    <form action="/add" class="mt-5 bg-light rounded p-4 shadow-lg w-75 m-auto" method="post"
+      enctype="multipart/form-data">
+      <h1 class="text-success mb-4">Add Image...</h1>
+      <input type="text" name="title" placeholder="Card title" class="form-control p-3 fs-5">
+      <input type="text" name="author" placeholder="Author name" class="form-control p-3 fs-5 my-4">
+      <input type="file" name="image" placeholder="Choose file" class="form-control p-3 fs-5 mb-4">
+      <button class="btn btn-success px-4 fs-5">Add to gallery</button>
+    </form>
+
+    <!--  -->
+    <%- include('footer')%>
